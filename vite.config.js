@@ -31,9 +31,12 @@ export default defineConfig(({ mode, command }) => {
       proxy: {
         // https://cn.vitejs.dev/config/#server-proxy
         '/dev-api': {
-          target: 'http://localhost:8080',
+          // target: 'http://localhost:8080',
+          target: 'https://vue.ruoyi.vip/',
           changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/dev-api/, '')
+          // rewrite: (p) => p.replace(/^\/dev-api/, '')
+          rewrite: (p) => p.replace(/^\/dev-api/, '/prod-api')
+          // rewrite: (p) => p.replace(/^\/prod-api/, '')
         }
       }
     },
